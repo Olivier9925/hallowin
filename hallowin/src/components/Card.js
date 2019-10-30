@@ -18,12 +18,12 @@ class Card extends Component {
         return(
             <div id="cardBackground" style = {{backgroundImage : `url(${picture})`}}>
                 <img id="spiderWeb" src={spiderWeb} alt=""></img>
-                <div class="cardStats">
-                    <img id="cardAttack" class="vignette" alt="" src= {sword}/>
-                    <img class="vignette" id="cardLevel" alt="" src= {hero}/>
-                    <img id="cardDefense" class="vignette" alt="" src = {potion}/>
+                <div className="cardStats">
+                    <img id="cardAttack" className="vignette" alt="" src= {sword}/>
+                    <img className="vignette" id="cardLevel" alt="" src= {hero}/>
+                    <img id="cardDefense" className="vignette" alt="" src = {potion}/>
                 </div>
-                <div class="cardStats">
+                <div className="cardStats">
                     <p>{attack}</p>
                     <p>{level}</p>
                     <p >{defense}</p>

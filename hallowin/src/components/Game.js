@@ -17,8 +17,8 @@ class Game extends React.Component {
 			playerStack: [],
 			playerHands: [],
 			computerStack: [],
-			playerCurrentCard: null,
-			computerCurrentCard: null,
+			playerCurrentCard: {id: 0},
+			computerCurrentCard: {id:0},
 			playerLifePoints: 15,
 			computerLifePoints: 15,
 			win: false,
@@ -35,13 +35,13 @@ class Game extends React.Component {
 			let playerStack = RandomTab(data.monsters);
 			let playerHands = playerStack.splice(0, 5);
 			let computerStack = data.monsters;
-			let computerHands = playerStack.splice(0, 1);
+			let computerCurrentCard = playerStack[0];
 
 			this.setState({
 				playerStack: playerStack,
 				playerHands: playerHands,
 				computerStack: computerStack,
-				computerHands: computerHands
+				computerCurrentCard: computerCurrentCard,
 			});
 		});
 	}
@@ -98,13 +98,14 @@ class Game extends React.Component {
 		return (
 			<div style={containerStyle}>
 				<Board />
-
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
-				<Turn playerCurrentCard={this.state.playerCurrentCard} computerHands={this.state.computerHands} />
+				<Turn playerCurrentCard={this.state.playerCurrentCard} computerCurrentCard={this.state.computerCurrentCard} />
 				<AfficherDeck
 					hands={this.state.playerHands}
 					computerHands={this.state.computerHands}
 					selectPlayerCard={this.selectPlayerCard}
+					selectComputerCard={this.selectComputerCard}
+					playerCurrentCard={this.state.playerCurrentCard}
 				/>
 
 				<HealthPoints

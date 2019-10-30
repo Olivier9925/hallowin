@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-function AfficherDeck({ hands, selectPlayerCard }) {
+function AfficherDeck({ hands, selectPlayerCard , playerCurrentCard }) {
 	//console.log(hand[4]["name"]);
 	//console.log(hands);
 	const deckStyle = {
@@ -12,7 +12,7 @@ function AfficherDeck({ hands, selectPlayerCard }) {
 		borderRadius: "20px",
 		overflow: "hidden",
 		margin: "0",
-		width: "85vw",
+		width: "80vw",
 		display: `flex`,
 		flexDirection: "row",
 		flexWrap: "nowrap",
@@ -26,7 +26,7 @@ function AfficherDeck({ hands, selectPlayerCard }) {
 		<div style={deckStyle}>
 			{hands.map((item) => (
 				<div style={{width : "20%"}} onClick={() => selectPlayerCard(item)} key={item.id}>
-					<Card
+					{(playerCurrentCard.id !== item.id) &&<Card
 						picture={item.picture}
 						name={item.name}
 						id={item.id}
@@ -34,8 +34,7 @@ function AfficherDeck({ hands, selectPlayerCard }) {
 						attack={item.attack}
 						defense={item.defense}
 						special={item.special}
-						
-					/>
+					/>}
 				</div>
 			))}
 		</div>
