@@ -6,11 +6,12 @@ p{
 #cardBackground{
     position: relative;
     width: 270px;
-    border: 5px;
+    border: 8px solid;
     border-color: black;
     background-size: cover;
     background-repeat: no-repeat;
     height: 380px;
+    border-radius: 15px;
 }
 .cardStats{
     position: absolute;
