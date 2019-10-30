@@ -1,16 +1,18 @@
 import React from "react";
 import Card from "./Card";
 
-let hand = [];
-
-function AfficherDeck(props) {
-	for (let i = 0; i < 5; i++) {
-		hand.push(props.playerStack[i]);
+function AfficherDeck({ playerStack, selectCard }) {
+	console.log("rre", playerStack);
+	let hands = [];
+	for (let i = 0; i < Math.min(5, playerStack.length); i++) {
+		hands[i] = playerStack[i];
 	}
 
+	//console.log(hand[4]["name"]);
+	//console.log(hands);
 	return (
 		<div>
-			{hand.map((item) => (
+			{hands.map((item) => (
 				<Card
 					picture={item.picture}
 					name={item.name}
@@ -20,6 +22,7 @@ function AfficherDeck(props) {
 					defense={item.defense}
 					special={item.special}
 					key={item.name + item.id}
+					onClick={selectCard(item.id)}
 				/>
 			))}
 		</div>
