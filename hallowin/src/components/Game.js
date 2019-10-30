@@ -4,6 +4,7 @@ import AfficherDeck from "./AfficherDeck";
 import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
+import Board from "./Board";
 import { RandomTab } from "./Helpers";
 import "../App.css";
 import HealthPoints from "./HealthPoints";
@@ -96,6 +97,8 @@ class Game extends React.Component {
 		};
 		return (
 			<div style={containerStyle}>
+				<Board />
+
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
 				<Turn playerCurrentCard={this.state.playerCurrentCard} computerHands={this.state.computerHands} />
 				<AfficherDeck
