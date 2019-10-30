@@ -11,9 +11,11 @@ const style = {
 class Lose extends Component {
 	constructor({ lose }) {
 		super({ lose } )
-	state = {
+	this.state = {
 		open: false
 	};
+
+	this.onOpenModal = this.onOpenModal.bind(this)
 }
 
 	onOpenModal = () => {
@@ -24,9 +26,12 @@ class Lose extends Component {
 		this.setState({ open: false });
 	};
 
+	if ( lose ) {
+		this.onOpenModal()
+	}
+
 	render() {
 		const { open } = this.state;
-		lose ? onOpenModal : ''
 		return (
 			<div>
 				<Modal open={open} onClose={this.onCloseModal} center>
