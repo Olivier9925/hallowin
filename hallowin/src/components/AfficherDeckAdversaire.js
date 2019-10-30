@@ -4,7 +4,7 @@ import { RandomTab } from "./Helpers";
 import card_back from "../graphics/card_back.jpg";
 
 function AfficherDeckAdversaire({ computerStack }) {
-	computerStack = RandomTab(computerStack);
+	computerStack = R                                                                                                                                                     k);
 
 	let hands = [];
 	for (let i = 0; i < Math.min(5, computerStack.length); i++) {
@@ -19,7 +19,7 @@ function AfficherDeckAdversaire({ computerStack }) {
 		borderRadius: "20px",
 		overflow: "hidden",
 		margin: "0 auto",
-		width: "50vw",
+		width: "30vw",
 		display: `flex`,
 		flexDirection: "row",
 		flexWrap: "nowrap",
