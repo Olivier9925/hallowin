@@ -38,12 +38,12 @@ class Game extends React.Component {
         const { computerCurrentCard } = this.state.computerCurrentCard;
             if (playerCurrentCard.attack > computerCurrentCard.defense) {
                 this.setState({ 
-                    computerLifePoints: computerLifePoints - (playerCurrentCard.attack - computerCurrentCard.defense)
+                    computerLifePoints: this.state.computerLifePoints - (playerCurrentCard.attack - computerCurrentCard.defense)
                 })
             }
             if (computerCurrentCard.attack > playerCurrentCard.defense) {
                 this.setState({
-                    playerLifePoints: playerLifePoints - (computerCurrentCard.attack - computerCurrentCard.defense)
+                    playerLifePoints: this.state.playerLifePoints - (computerCurrentCard.attack - computerCurrentCard.defense)
                 })
             }
             
