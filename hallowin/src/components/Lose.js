@@ -5,18 +5,18 @@ import "../App.css";
 
 const style = {
 	fontFamily: "Madjoe",
-	textAlign: 'center'
-}
+	textAlign: "center"
+};
 
 class Lose extends Component {
-	constructor({ lose }) {
-		super({ lose } )
-	this.state = {
-		open: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			open: false
+		};
 
-	this.onOpenModal = this.onOpenModal.bind(this)
-}
+		this.onOpenModal = this.onOpenModal.bind(this);
+	}
 
 	onOpenModal = () => {
 		this.setState({ open: true });
@@ -26,8 +26,8 @@ class Lose extends Component {
 		this.setState({ open: false });
 	};
 
-	if ( lose ) {
-		this.onOpenModal()
+	if(lose) {
+		this.onOpenModal();
 	}
 
 	render() {
