@@ -5,6 +5,8 @@ import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
 import { RandomTab } from "./Helpers";
+import '../App.css'
+import HealthPoints from './HealthPoints'
 
 class Game extends React.Component {
 	constructor() {
@@ -71,7 +73,7 @@ class Game extends React.Component {
 		if (computerCurrentCard.attack > playerCurrentCard.defense) {
 			this.setState({
 				playerLifePoints:
-					this.state.playerLifePoints - (computerCurrentCard.attack - computerCurrentCard.defense)
+					this.state.playerLifePoints - (computerCurrentCard.attack - playerCurrentCard.defense)
 			});
 			if (this.state.playerLifePoints <= 0) {
 				this.setState({ lose: true });
@@ -100,8 +102,10 @@ class Game extends React.Component {
 					selectPlayerCard={this.selectPlayerCard}
 					selectComputerCard={this.selectComputerCard}
 				/>
-				{this.state.lose && <Lose />}
-				{this.state.win && <Win />}
+
+                <HealthPoints playerLifePoints={this.state.playerLifePoints} computerLifePoints={this.state.computerLifePoints} />
+				{this.state.lose && <Lose lose={this.state.lose} />}
+				{this.state.win && <Win win={this.state.win} />}
 			</div>
 		);
 	}

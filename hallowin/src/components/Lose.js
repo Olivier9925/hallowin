@@ -5,13 +5,18 @@ import "../App.css";
 
 const style = {
 	fontFamily: "Madjoe",
-	textAlign: 'center'
-}
+	textAlign: "center"
+};
 
 class Lose extends Component {
-	state = {
-		open: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			open: false
+		};
+
+		this.onOpenModal = this.onOpenModal.bind(this);
+	}
 
 	onOpenModal = () => {
 		this.setState({ open: true });
@@ -21,11 +26,14 @@ class Lose extends Component {
 		this.setState({ open: false });
 	};
 
+	if(lose) {
+		this.onOpenModal();
+	}
+
 	render() {
 		const { open } = this.state;
 		return (
 			<div>
-				<button onClick={this.onOpenModal}>Open modal</button>
 				<Modal open={open} onClose={this.onCloseModal} center>
 					<h2 style={style}>YOU DIED!</h2>
 					<img src={YouDied} alt="you died" />
