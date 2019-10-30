@@ -6,9 +6,14 @@ class Game extends React.Component {
         super();
         this.state = {
             playerStack: [],
-            computerStack: []
+            computerStack: [],
+            playerCurrentCard: null,
+            computerCurrentCard: null,
+            playerLifePoints: 15,
+            computerLifePoints: 15,
         }
         this.getMonster = this.getMonster.bind(this)
+        this.battle = this.battle.bind(this)
     }
 
     componentDidMount() {
@@ -25,6 +30,22 @@ class Game extends React.Component {
                 computerStack: data.monsters
             })
         }) 
+    }
+
+    battle() {
+        const { playerCurrentCard } = this.state.playerCurrentCard;
+        const { computerCurrentCard } = this.state.computerCurrentCard;
+            if (playerCurrentCard.attack > computerCurrentCard.defense) {
+                this.setState({ 
+                    computerLifePoints: computerLifePoints - (playerCurrentCard.attack - computerCurrentCard.defense)
+                })
+            }
+            if (computerCurrentCard.attack > playerCurrentCard.defense) {
+                this.setState({
+                    playerLifePoints: playerLifePoints - (computerCurrentCard.attack - computerCurrentCard.defense)
+                })
+            }
+            
     }
 
     render() {
