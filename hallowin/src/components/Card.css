@@ -51,20 +51,19 @@ p{
         ;
 
 
-    }
-    #cardDescription{
-        background-color: RGB(0,0,0,0.5);
-        position : absolute;
-        width: inherit;
-        height: 20%;
-        top: 80%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        
-    }
-    #cardDescription p{
+}
+#cardDescription{
+    background-color: RGB(0,0,0,0.5);
+    position : absolute;
+    width: inherit;
+    height: 20%;
+    top: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+#cardDescription p{
     color: white;
 }
 
