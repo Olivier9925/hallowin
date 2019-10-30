@@ -86,8 +86,8 @@ class Game extends React.Component {
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
                 <HealthPoints playerLifePoints={this.state.playerLifePoints} computerLifePoints={this.state.computerLifePoints} />
 				<AfficherDeck playerStack={this.state.playerStack} selectCard={this.selectCard} />
-				{this.state.lose && <Lose />}
-				{this.state.win && <Win />}
+				{this.state.lose && <Lose lose={this.state.lose} />}
+				{this.state.win && <Win win={this.state.win} />}
 			</div>
 		);
 	}
