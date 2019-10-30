@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import AfficherDeck from "./AfficherDeck";
+import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
 
@@ -31,9 +32,6 @@ class Game extends React.Component {
 			});
 		});
 	}
-	componentDidMount() {
-		this.getMonster();
-	}
 
 	battle() {
 		const { playerCurrentCard } = this.state.playerCurrentCard;
@@ -57,10 +55,26 @@ class Game extends React.Component {
 			}
 		}
 	}
+	componentDidMount() {
+		this.getMonster();
+	}
 
 	render() {
+		const containerStyle = {
+			height: "100vh",
+			width: "100vw",
+			backgroundColor: "red",
+			display: "flex",
+			flexDirection: "column",
+			flexWrap: "nowrap",
+			justifyContent: "space-between",
+			alignItems: "center",
+			alignContent: "stretch"
+		};
 		return (
-			<div>
+			<div style={containerStyle}>
+				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
+
 				<AfficherDeck playerStack={this.state.playerStack} />
 				{this.state.lose && <Lose />}
 				{this.state.win && <Win />}
