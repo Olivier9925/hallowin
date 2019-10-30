@@ -12,22 +12,19 @@ class Game extends React.Component {
 		this.getMonster = this.getMonster.bind(this);
 	}
 
+	getMonster() {
+		axios.get("https://hackathon-wild-hackoween.herokuapp.com/monsters").then(({ data }) => {
+			//console.log(data);
+			//console.log(data);
+			this.setState({
+				playerStack: data.monsters,
+				computerStack: data.monsters
+			});
+		});
+	}
 	componentDidMount() {
 		this.getMonster();
 	}
-
-	getMonster() {
-		axios.get("https://hackathon-wild-hackoween.herokuapp.com/monsters")
-			.then((response) => response.data)
-			.then((data) => {
-				console.log(data);
-				this.setState({
-					playerStack: data.monsters,
-					computerStack: data.monsters
-				});
-			});
-	}
-
 	render() {
 		return (
 			<div>
