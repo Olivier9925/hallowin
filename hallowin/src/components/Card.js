@@ -1,23 +1,13 @@
 import React, { Component } from "react";
-import shield from "../graphics/shield.png"
-import blood from "../graphics/blood.png"
-import crown from "../graphics/crowns.png"
-import "./Card.css"
+import potion from "../graphics/Potion_2.png";
+import sword from "../graphics/SwordAxe.png";
+import hero from "../graphics/Hero.png";
+import spiderWeb from "../graphics/spiderWeb.png";
+import "./Card.css";
 
-const vignetteStyle = {
-    width : `20px`,
-    height : `20px`,
-    top: `10px`
-}
-const levelStyle = {
-    width : `30px`,
-    height : `30px`,
-    top: `10px`
-}
+
+
 class Card extends Component {
-    constructor(props){
-        super(props)
-    }
     render(){
         const {name,
             level,
@@ -27,21 +17,24 @@ class Card extends Component {
             special} = this.props;
         return(
             <div id="cardBackground" style = {{backgroundImage : `url(${picture})`}}>
-                <div id="cardStats">
-                    <div id="cardLevel" style = {{backgroundImage : `url(${crown})`, ...levelStyle}}>
-                        {level}</div>
-                    <div id="cardAttack" style = {{backgroundImage : `url(${blood})`, ...vignetteStyle}}>
-                        {attack}</div>
-                    <div id="cardDefense" style = {{backgroundImage : `url(${shield})`, ...vignetteStyle}}>
-                        {defense}</div>
-                </div>
-                <div id="cardDescription">
-                    <p>{name}</p>
-                    <p>{special}</p>
-                </div>
-            </div>
+                <img id="spiderWeb" src={spiderWeb} alt=""></img>
+                <div class="cardStats">
+                    <img id="cardAttack" class="vignette" src= {sword}/>
+                    <img class="vignette" id="cardLevel" src= {hero}/>
+                    <img id="cardDefense" class="vignette" src = {potion}/>
+                </div>
+                <div class="cardStats">
+                    <p>{attack}</p>
+                    <p>{level}</p>
+                    <p >{defense}</p>
+                </div>
+                <div id="cardDescription">
+                    <p>{name}</p>
+                    <p id="special">{special}</p>
+                </div>
+            </div>
         )
     }
 }
 
-export default Card
+export default Card;
