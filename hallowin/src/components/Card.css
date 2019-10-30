@@ -1,6 +1,6 @@
 p{
     margin: 0 auto;
-    font-size: 2em;
+    font-size: 1.7em;
     padding: 0;
 }
 #cardBackground{
@@ -32,8 +32,8 @@ p{
 
 
 .vignette{
-    height: 90px;
-    width: 90px;
+    height: auto;
+    width: 33%;
     margin: 0;
     z-index: 2;
 }
