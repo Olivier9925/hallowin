@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHands }) {
+function AfficherDeck({ hands, selectPlayerCard }) {
 	//console.log(hand[4]["name"]);
 	//console.log(hands);
 	const deckStyle = {
@@ -21,7 +21,7 @@ function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHan
 		alignContent: "stretch",
 		cursor: "pointer"
 	};
-
+	//console.log("hands = ", hands);
 	return (
 		<div style={deckStyle}>
 			{hands.map((item) => (
