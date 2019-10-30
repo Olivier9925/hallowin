@@ -1,15 +1,73 @@
-#cardBackground {
-	height : 250px;
-	width: 150px;
+p{
+    margin: 0 auto;
+    font-size: 2em;
+    padding: 0;
 }
-#cardstats   {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
+#cardBackground{
+    position: relative;
+    width: 270px;
+    border: 5px;
+    border-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 380px;
 }
-#cardDescription {
-	background-color: RGB(102,  0,  0,  0.5);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.cardStats{
+    position: absolute;
+    top: 240px;
+    display: flex;
+    flex-direction: row;
+    align-items : center;
+    justify-content: space-evenly;
+    width: inherit;
+    height: 60px;
+}
+#spiderWeb{
+    width: 100%;
+    height: 80%;
+    filter : drop-shadow(-1px 1px 2px rgba(255, 255, 255, 0.8)); 
+}
+
+
+
+.vignette{
+    height: 90px;
+    width: 90px;
+    margin: 0;
+    z-index: 2;
+}
+.cardStats p {
+    font-size: 2.5em;
+    height: 70px;
+    width: 70px;
+    margin: 0;
+    padding-top: 40px;
+    z-index: 3;
+    text-shadow: 
+    2px 0 0 rgba(255, 255, 255, 0.6),
+        -2px 0 0 rgba(255, 255, 255, 0.6),
+        0 -2px 0 rgba(255, 255, 255, 0.6),
+        0 2px 0 rgba(255, 255, 255, 0.6)
+        ;
+
+
+    }
+    #cardDescription{
+        background-color: RGB(0,0,0,0.5);
+        position : absolute;
+        width: inherit;
+        height: 20%;
+        top: 80%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        
+    }
+    #cardDescription p{
+    color: white;
+}
+
+#special {
+    font-size : 1em;
 }
