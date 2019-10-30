@@ -5,9 +5,14 @@ class Game extends React.Component {
     constructor() {
         super();
         this.state = {
-            monster: []
+            playerStack: [],
+            computerStack: []
         }
         this.getMonster = this.getMonster.bind(this)
+    }
+
+    componentDidMount() {
+        this.getMonster()
     }
 
     getMonster() {
@@ -15,13 +20,16 @@ class Game extends React.Component {
         .then(response => response.data)
         .then(data => {
             console.log(data)
-            this.setState({ monster: data[0]})
+            this.setState({ 
+                playerStack: data.monsters,
+                computerStack: data.monsters
+            })
         }) 
     }
 
     render() {
         return (
-            <div></div>
+        <div></div>
         )
     }
 }
