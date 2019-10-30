@@ -5,7 +5,7 @@ let hand = [];
 
 function AfficherDeck(props) {
 	for (let i = 0; i < 5; i++) {
-		hand.push(props.hand[i]);
+		hand.push(props.playerStack[i]);
 	}
 
 	return (
