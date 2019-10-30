@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import AfficherDeck from "./AfficherDeck";
 
 class Game extends React.Component {
     constructor() {
@@ -50,7 +51,10 @@ class Game extends React.Component {
 
     render() {
         return (
-        <div></div>
+        <div>
+            <AfficherDeck playerStack={this.state.playerStack} />
+
+        </div>
         )
     }
 }
