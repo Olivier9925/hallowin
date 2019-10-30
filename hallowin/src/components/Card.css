@@ -5,7 +5,7 @@ p{
 }
 #cardBackground{
     position: relative;
-    width: 270px;
+    width: 100%;
     border: 8px solid;
     border-color: black;
     background-size: cover;
