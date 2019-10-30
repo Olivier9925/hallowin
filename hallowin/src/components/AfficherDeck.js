@@ -1,14 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import { RandomTab } from "./Helpers";
 
-function AfficherDeck({ playerStack }) {
-	playerStack = RandomTab(playerStack);
-	let hands = [];
-	for (let i = 0; i < Math.min(5, playerStack.length); i++) {
-		hands[i] = playerStack[i];
-	}
-
+function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHands }) {
 	//console.log(hand[4]["name"]);
 	//console.log(hands);
 	const deckStyle = {
@@ -25,22 +18,24 @@ function AfficherDeck({ playerStack }) {
 		flexWrap: "nowrap",
 		justifyContent: "space-between",
 		alignItems: "stretch",
-		alignContent: "stretch"
+		alignContent: "stretch",
+		cursor: "pointer"
 	};
 
 	return (
 		<div style={deckStyle}>
 			{hands.map((item) => (
-				<Card
-					picture={item.picture}
-					name={item.name}
-					id={item.id}
-					level={item.level}
-					attack={item.attack}
-					defense={item.defense}
-					special={item.special}
-					key={item.id}
-				/>
+				<div onClick={() => selectPlayerCard(item)} key={item.id}>
+					<Card
+						picture={item.picture}
+						name={item.name}
+						id={item.id}
+						level={item.level}
+						attack={item.attack}
+						defense={item.defense}
+						special={item.special}
+					/>
+				</div>
 			))}
 		</div>
 	);

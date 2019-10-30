@@ -3,10 +3,20 @@ import Modal from "react-responsive-modal";
 import YouDied from "./Images/youdied.jpg";
 import "../App.css";
 
+const style = {
+	fontFamily: "Madjoe",
+	textAlign: "center"
+};
+
 class Lose extends Component {
-	state = {
-		open: false
-	};
+	constructor() {
+		super();
+		this.state = {
+			open: false
+		};
+
+		this.onOpenModal = this.onOpenModal.bind(this);
+	}
 
 	onOpenModal = () => {
 		this.setState({ open: true });
@@ -16,13 +26,16 @@ class Lose extends Component {
 		this.setState({ open: false });
 	};
 
+	if(lose) {
+		this.onOpenModal();
+	}
+
 	render() {
 		const { open } = this.state;
 		return (
 			<div>
-				<button onClick={this.onOpenModal}>Open modal</button>
 				<Modal open={open} onClose={this.onCloseModal} center>
-					<h2 style={{ fontFamily: "Madjoe" }}>YOU DIED!</h2>
+					<h2 style={style}>YOU DIED!</h2>
 					<img src={YouDied} alt="you died" />
 				</Modal>
 			</div>

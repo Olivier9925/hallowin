@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import potion from "../graphics/Potion_2.png";
-import sword from "../graphics/SwordAxe.png";
-import hero from "../graphics/Hero.png";
+import React, { Component } from "react";
+import potion from "../graphics/Potion_2.png";
+import sword from "../graphics/SwordAxe.png";
+import hero from "../graphics/Hero.png";
 import spiderWeb from "../graphics/spiderWeb.png";
 import "./Card.css";
 
@@ -37,4 +37,4 @@ class Card extends Component {
     }
 }
 
-export default Card;
+export default Card;

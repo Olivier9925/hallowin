@@ -6,3 +6,20 @@
 .App {
 	text-align: center;
 }
+
+.score {
+	display: flex;
+	justify-content: space-between;
+	font-family: "Madjoe";
+	font-size: 2em;
+	position: absolute;
+	top: 25%;
+	width: 100%;
+	z-index: 2;
+}
+
+.points {
+	margin-left: 20px;
+	margin-right: 20px;
+	color: white;
+}

@@ -1,5 +1,4 @@
 import React from "react";
-import Card from "./Card";
 import { RandomTab } from "./Helpers";
 import card_back from "../graphics/card_back.jpg";
 
@@ -38,8 +37,8 @@ function AfficherDeckAdversaire({ computerStack }) {
 
 	return (
 		<div style={deckStyle}>
-			{hands.map(() => (
-				<img src={card_back} style={cardStyle} />
+			{hands.map((hand) => (
+				<img src={card_back} style={cardStyle} key={hand.id} alt="vs card" />
 			))}
 		</div>
 	);
