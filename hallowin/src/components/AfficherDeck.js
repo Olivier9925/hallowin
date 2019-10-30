@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-function AfficherDeck({ hands, selectPlayerCard }) {
+function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHands }) {
 	//console.log(hand[4]["name"]);
 	//console.log(hands);
 	const deckStyle = {

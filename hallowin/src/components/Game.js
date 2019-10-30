@@ -24,16 +24,20 @@ class Game extends React.Component {
 		this.getMonster = this.getMonster.bind(this);
 		this.battle = this.battle.bind(this);
 		this.selectPlayerCard = this.selectPlayerCard.bind(this);
+		this.selectComputerCard = this.selectComputerCard.bind(this);
 	}
 	getMonster() {
 		axios.get("https://hackathon-wild-hackoween.herokuapp.com/monsters").then(({ data }) => {
 			let playerStack = RandomTab(data.monsters);
 			let playerHands = playerStack.splice(0, 5);
+			let computerStack = data.monsters;
+			let computerHands = playerStack.splice(0, 1);
 
 			this.setState({
 				playerStack: playerStack,
 				playerHands: playerHands,
-				computerStack: data.monsters
+				computerStack: computerStack,
+				computerHands: computerHands
 			});
 		});
 	}
@@ -42,12 +46,13 @@ class Game extends React.Component {
 		this.setState({ playerCurrentCard: card, playerTurn: !this.state.playerTurn });
 	}
 
-	selectComputerCard() {
+	selectComputerCard = (card) => {
 		this.setState({ computerCurrentCard: card, playerTurn: !this.state.playerTurn });
-	}
+	};
 
 	componentDidMount() {
 		this.getMonster();
+		this.selectComputerCard();
 	}
 
 	battle() {
@@ -91,8 +96,9 @@ class Game extends React.Component {
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
 				<AfficherDeck
 					hands={this.state.playerHands}
-					computerStack={this.state.computerStack}
+					computerHands={this.state.computerHands}
 					selectPlayerCard={this.selectPlayerCard}
+					selectComputerCard={this.selectComputerCard}
 				/>
 				{this.state.lose && <Lose />}
 				{this.state.win && <Win />}
