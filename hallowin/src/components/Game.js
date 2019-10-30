@@ -4,6 +4,8 @@ import AfficherDeck from "./AfficherDeck";
 import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
+import '../App.css'
+import HealthPoints from './HealthPoints'
 
 class Game extends React.Component {
 	constructor() {
@@ -16,21 +18,29 @@ class Game extends React.Component {
 			playerLifePoints: 15,
 			computerLifePoints: 15,
 			win: false,
-			lose: false
+			lose: true
 		};
 		this.getMonster = this.getMonster.bind(this);
-		this.battle = this.battle.bind(this);
+        this.battle = this.battle.bind(this);
+        this.selectCard = this.selectCard.bind(this);
 	}
 
 	getMonster() {
 		axios.get("https://hackathon-wild-hackoween.herokuapp.com/monsters").then(({ data }) => {
-			//console.log(data);
 			//console.log(data);
 			this.setState({
 				playerStack: data.monsters,
 				computerStack: data.monsters
 			});
 		});
+    }
+    
+    selectCard(id) {
+        this.setState({ playerCurrentCard: id })
+    }
+
+	componentDidMount() {
+		this.getMonster();
 	}
 
 	battle() {
@@ -48,7 +58,7 @@ class Game extends React.Component {
 		if (computerCurrentCard.attack > playerCurrentCard.defense) {
 			this.setState({
 				playerLifePoints:
-					this.state.playerLifePoints - (computerCurrentCard.attack - computerCurrentCard.defense)
+					this.state.playerLifePoints - (computerCurrentCard.attack - playerCurrentCard.defense)
 			});
 			if (this.state.playerLifePoints <= 0) {
 				this.setState({ lose: true });
@@ -74,8 +84,8 @@ class Game extends React.Component {
 		return (
 			<div style={containerStyle}>
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
-
-				<AfficherDeck playerStack={this.state.playerStack} />
+                <HealthPoints playerLifePoints={this.state.playerLifePoints} computerLifePoints={this.state.computerLifePoints} />
+				<AfficherDeck playerStack={this.state.playerStack} selectCard={this.selectCard} />
 				{this.state.lose && <Lose />}
 				{this.state.win && <Win />}
 			</div>

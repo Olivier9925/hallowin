@@ -2,7 +2,7 @@ import React from "react";
 import Card from "./Card";
 import { RandomTab } from "./Helpers";
 
-function AfficherDeck({ playerStack }) {
+function AfficherDeck({ playerStack, selectCard }) {
 	playerStack = RandomTab(playerStack);
 	let hands = [];
 	for (let i = 0; i < Math.min(5, playerStack.length); i++) {
@@ -40,6 +40,7 @@ function AfficherDeck({ playerStack }) {
 					defense={item.defense}
 					special={item.special}
 					key={item.id}
+					// onClick={selectCard(item.id)}
 				/>
 			))}
 		</div>
