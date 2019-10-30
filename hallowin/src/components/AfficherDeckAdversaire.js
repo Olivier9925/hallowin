@@ -24,7 +24,10 @@ function AfficherDeckAdversaire({ computerStack }) {
 		flexDirection: "row",
 		flexWrap: "nowrap",
 		justifyContent: "space-between",
-		alignItems: "baseline"
+		alignItems: "baseline",
+		position: "fixed",
+		top: "5%",
+
 	};
 
 	const cardStyle = {

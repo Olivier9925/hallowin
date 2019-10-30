@@ -4,6 +4,8 @@ import AfficherDeck from "./AfficherDeck";
 import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
+import Board from './Board';
+
 
 class Game extends React.Component {
 	constructor() {
@@ -48,7 +50,7 @@ class Game extends React.Component {
 		if (computerCurrentCard.attack > playerCurrentCard.defense) {
 			this.setState({
 				playerLifePoints:
-					this.state.playerLifePoints - (computerCurrentCard.attack - computerCurrentCard.defense)
+					this.state.playerLifePoints - (computerCurrentCard.attack - playerCurrentCard.defense)
 			});
 			if (this.state.playerLifePoints <= 0) {
 				this.setState({ lose: true });
@@ -63,7 +65,7 @@ class Game extends React.Component {
 		const containerStyle = {
 			height: "100vh",
 			width: "100vw",
-			backgroundColor: "red",
+			backgroundColor: "transparent",
 			display: "flex",
 			flexDirection: "column",
 			flexWrap: "nowrap",
@@ -73,6 +75,8 @@ class Game extends React.Component {
 		};
 		return (
 			<div style={containerStyle}>
+				<Board/>
+
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
 
 				<AfficherDeck playerStack={this.state.playerStack} />

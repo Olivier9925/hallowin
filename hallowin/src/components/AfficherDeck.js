@@ -19,7 +19,7 @@ function AfficherDeck({ playerStack }) {
 		borderRadius: "20px",
 		overflow: "hidden",
 		margin: "0",
-		width: "95vw",
+		width: "85vw",
 		display: `flex`,
 		flexDirection: "row",
 		flexWrap: "nowrap",
