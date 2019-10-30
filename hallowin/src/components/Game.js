@@ -16,7 +16,7 @@ class Game extends React.Component {
 			playerStack: [],
 			playerHands: [],
 			computerStack: [],
-			playerCurrentCard: null,
+			playerCurrentCard: {id: 0},
 			computerCurrentCard: null,
 			playerLifePoints: 15,
 			computerLifePoints: 15,
@@ -40,7 +40,7 @@ class Game extends React.Component {
 				playerStack: playerStack,
 				playerHands: playerHands,
 				computerStack: computerStack,
-				computerHands: computerHands
+				computerHands: computerHands,
 			});
 		});
 	}
@@ -104,6 +104,7 @@ class Game extends React.Component {
 					computerHands={this.state.computerHands}
 					selectPlayerCard={this.selectPlayerCard}
 					selectComputerCard={this.selectComputerCard}
+					selectedPlayerCard={this.state.playerCurrentCard}
 				/>
 
                 <HealthPoints playerLifePoints={this.state.playerLifePoints} computerLifePoints={this.state.computerLifePoints} />

@@ -1,3 +1,5 @@
+
+
 p{
     margin: 0 auto;
     font-size: 1.5em;
@@ -15,7 +17,7 @@ p{
 }
 .cardStats{
     position: absolute;
-    top: 240px;
+    top: 60%;
     display: flex;
     flex-direction: row;
     align-items : center;
@@ -26,7 +28,7 @@ p{
 }
 #spiderWeb{
     width: 100%;
-    height: 80%;
+    height: 75%;
     filter : drop-shadow(-1px 1px 2px rgba(255, 255, 255, 0.8)); 
 }
 
@@ -39,6 +41,7 @@ p{
     z-index: 2;
 }
 .cardStats p {
+    
     font-size: 2.2em;
     height: 70px;
     width: 70px;
@@ -58,17 +61,18 @@ p{
     background-color: RGB(0,0,0,0.5);
     position : absolute;
     width: 100%;
-    height: 20%;
-    top: 80%;
+    height: 25%;
+    top: 75%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     
 }
 #cardDescription p{
+    font-family: "Madjoe";
     color: white;
 }
 
 #special {
-    font-size : 1em;
+    font-size : 1.2em;
 }
