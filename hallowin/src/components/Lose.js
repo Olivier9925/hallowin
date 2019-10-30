@@ -9,9 +9,12 @@ const style = {
 }
 
 class Lose extends Component {
+	constructor({ lose }) {
+		super({ lose } )
 	state = {
 		open: false
 	};
+}
 
 	onOpenModal = () => {
 		this.setState({ open: true });
@@ -23,9 +26,9 @@ class Lose extends Component {
 
 	render() {
 		const { open } = this.state;
+		lose ? onOpenModal : ''
 		return (
 			<div>
-				<button onClick={this.onOpenModal}>Open modal</button>
 				<Modal open={open} onClose={this.onCloseModal} center>
 					<h2 style={style}>YOU DIED!</h2>
 					<img src={YouDied} alt="you died" />

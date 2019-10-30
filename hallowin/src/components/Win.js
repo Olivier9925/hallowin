@@ -9,9 +9,12 @@ const style = {
 }
 
 class Win extends Component {
+	constructor({ win }) {
+		super({ win })
 	state = {
 		open: false
 	};
+	}
 
 	onOpenModal = () => {
 		this.setState({ open: true });
@@ -23,9 +26,9 @@ class Win extends Component {
 
 	render() {
 		const { open } = this.state;
+		win ? onOpenModal : ''
 		return (
 			<div>
-				<button onClick={this.onOpenModal}>Open modal</button>
 				<Modal open={open} onClose={this.onCloseModal} center>
 					<h2 style={style}>You destroyed your enemy!</h2>
 					<img src={YouWin} alt="you win" />
