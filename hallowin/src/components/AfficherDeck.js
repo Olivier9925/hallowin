@@ -12,7 +12,7 @@ function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHan
 		borderRadius: "20px",
 		overflow: "hidden",
 		margin: "0",
-		width: "95vw",
+		width: "85vw",
 		display: `flex`,
 		flexDirection: "row",
 		flexWrap: "nowrap",
@@ -25,7 +25,7 @@ function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHan
 	return (
 		<div style={deckStyle}>
 			{hands.map((item) => (
-				<div onClick={() => selectPlayerCard(item)} key={item.id}>
+				<div style={{width : "20%"}} onClick={() => selectPlayerCard(item)} key={item.id}>
 					<Card
 						picture={item.picture}
 						name={item.name}
@@ -34,6 +34,7 @@ function AfficherDeck({ hands, selectPlayerCard, selectComputerCard, computerHan
 						attack={item.attack}
 						defense={item.defense}
 						special={item.special}
+						
 					/>
 				</div>
 			))}
