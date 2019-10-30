@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
 
-function AfficherDeck({ hands, selectPlayerCard , selectedPlayerCard }) {
+function AfficherDeck({ hands, selectPlayerCard , playerCurrentCard }) {
 	//console.log(hand[4]["name"]);
 	//console.log(hands);
 	const deckStyle = {
@@ -26,7 +26,7 @@ function AfficherDeck({ hands, selectPlayerCard , selectedPlayerCard }) {
 		<div style={deckStyle}>
 			{hands.map((item) => (
 				<div style={{width : "20%"}} onClick={() => selectPlayerCard(item)} key={item.id}>
-					{(selectedPlayerCard.id !== item.id) &&<Card
+					{(playerCurrentCard.id !== item.id) &&<Card
 						picture={item.picture}
 						name={item.name}
 						id={item.id}
