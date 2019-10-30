@@ -4,37 +4,46 @@ import AfficherDeck from "./AfficherDeck";
 import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
+import { RandomTab } from "./Helpers";
 
 class Game extends React.Component {
 	constructor() {
 		super();
 		this.state = {
 			playerStack: [],
+			playerHands: [],
 			computerStack: [],
 			playerCurrentCard: null,
 			computerCurrentCard: null,
 			playerLifePoints: 15,
 			computerLifePoints: 15,
 			win: false,
-			lose: true
+			lose: true,
+			playerTurn: false
 		};
 		this.getMonster = this.getMonster.bind(this);
 		this.battle = this.battle.bind(this);
-		this.selectCard = this.selectCard.bind(this);
+		this.selectPlayerCard = this.selectPlayerCard.bind(this);
 	}
-
 	getMonster() {
 		axios.get("https://hackathon-wild-hackoween.herokuapp.com/monsters").then(({ data }) => {
-			//console.log(data);
+			let playerStack = RandomTab(data.monsters);
+			let playerHands = playerStack.splice(0, 5);
+
 			this.setState({
-				playerStack: data.monsters,
+				playerStack: playerStack,
+				playerHands: playerHands,
 				computerStack: data.monsters
 			});
 		});
 	}
 
-	selectCard(id) {
-		this.setState({ playerCurrentCard: id });
+	selectPlayerCard(card) {
+		this.setState({ playerCurrentCard: card, playerTurn: !this.state.playerTurn });
+	}
+
+	selectComputerCard() {
+		this.setState({ computerCurrentCard: card, playerTurn: !this.state.playerTurn });
 	}
 
 	componentDidMount() {
@@ -44,6 +53,7 @@ class Game extends React.Component {
 	battle() {
 		const { playerCurrentCard } = this.state.playerCurrentCard;
 		const { computerCurrentCard } = this.state.computerCurrentCard;
+
 		if (playerCurrentCard.attack > computerCurrentCard.defense) {
 			this.setState({
 				computerLifePoints:
@@ -63,15 +73,12 @@ class Game extends React.Component {
 			}
 		}
 	}
-	componentDidMount() {
-		this.getMonster();
-	}
 
 	render() {
 		const containerStyle = {
 			height: "100vh",
 			width: "100vw",
-			backgroundColor: "red",
+			backgroundColor: "transparent",
 			display: "flex",
 			flexDirection: "column",
 			flexWrap: "nowrap",
@@ -82,8 +89,11 @@ class Game extends React.Component {
 		return (
 			<div style={containerStyle}>
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
-
-				<AfficherDeck playerStack={this.state.playerStack} selectCard={this.selectCard} />
+				<AfficherDeck
+					hands={this.state.playerHands}
+					computerStack={this.state.computerStack}
+					selectPlayerCard={this.selectPlayerCard}
+				/>
 				{this.state.lose && <Lose />}
 				{this.state.win && <Win />}
 			</div>
