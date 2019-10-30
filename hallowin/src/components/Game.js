@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import AfficherDeck from "./AfficherDeck";
+import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
 
@@ -18,8 +19,8 @@ class Game extends React.Component {
 			lose: true
 		};
 		this.getMonster = this.getMonster.bind(this);
-        this.battle = this.battle.bind(this);
-        this.selectCard = this.selectCard.bind(this);
+		this.battle = this.battle.bind(this);
+		this.selectCard = this.selectCard.bind(this);
 	}
 
 	getMonster() {
@@ -30,11 +31,11 @@ class Game extends React.Component {
 				computerStack: data.monsters
 			});
 		});
-    }
-    
-    selectCard(id) {
-        this.setState({ playerCurrentCard: id })
-    }
+	}
+
+	selectCard(id) {
+		this.setState({ playerCurrentCard: id });
+	}
 
 	componentDidMount() {
 		this.getMonster();
@@ -62,10 +63,26 @@ class Game extends React.Component {
 			}
 		}
 	}
+	componentDidMount() {
+		this.getMonster();
+	}
 
 	render() {
+		const containerStyle = {
+			height: "100vh",
+			width: "100vw",
+			backgroundColor: "red",
+			display: "flex",
+			flexDirection: "column",
+			flexWrap: "nowrap",
+			justifyContent: "space-between",
+			alignItems: "center",
+			alignContent: "stretch"
+		};
 		return (
-			<div>
+			<div style={containerStyle}>
+				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
+
 				<AfficherDeck playerStack={this.state.playerStack} selectCard={this.selectCard} />
 				{this.state.lose && <Lose />}
 				{this.state.win && <Win />}
