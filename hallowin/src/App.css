@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Madjoe';
-  src: url('../components/Images/Madjoe.ttf')
+  src: url('./components/Images/Madjoe.ttf')
 }
 
 .App {

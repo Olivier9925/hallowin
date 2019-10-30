@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-responsive-modal";
-import YouWin from '../Images/youwin.png'
+import YouWin from './Images/youwin.png'
 import '../App.css'
 
 class Win extends Component {

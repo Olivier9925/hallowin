@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Modal from "react-responsive-modal";
-import YouDied from '../Images/youdied.jpg'
+import YouDied from './Images/youdied.jpg'
 import '../App.css'
 
 
