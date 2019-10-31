@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "943b00f159d3f2e13ac111426fd3d53c",
+    "revision": "56b1ada9b985456cc3083f2c47d30b61",
     "url": "/hallowin/index.html"
   },
   {
-    "revision": "ccb1709d6f56284551a3",
+    "revision": "53eaa21d78cecc4bddf5",
     "url": "/hallowin/static/css/main.7857bc72.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/hallowin/static/js/2.d39cdd55.chunk.js"
   },
   {
-    "revision": "ccb1709d6f56284551a3",
-    "url": "/hallowin/static/js/main.aa36ab4c.chunk.js"
+    "revision": "53eaa21d78cecc4bddf5",
+    "url": "/hallowin/static/js/main.5da34fe7.chunk.js"
   },
   {
     "revision": "8d6680f19ff0f169fdf3",
