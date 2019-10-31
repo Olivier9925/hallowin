@@ -1,14 +1,21 @@
-import React from 'react';
-import './App.css';
-import Game from './components/Game'
+import React, { Component } from "react";
+import "./App.css";
+import Start from "./components/Start.js";
+import Game from "./components/Game.js";
 
+class App extends Component {
+	constructor(props) {
+		super(props);
+		this.state = {
+			start: false
+		};
+	}
 
-function App() {
-  return (
-    <div className="App">
-      <Game />
-    </div>
-  );
+	start = () => this.setState({ start: !this.state.start });
+
+	render() {
+		return <div className="App">{this.state.start ? <Game /> : <Start start={this.start} />}</div>;
+	}
 }
 
 export default App;
