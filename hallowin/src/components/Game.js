@@ -4,6 +4,7 @@ import AfficherDeck from "./AfficherDeck";
 import AfficherDeckAdversaire from "./AfficherDeckAdversaire";
 import Lose from "./Lose";
 import Win from "./Win";
+import Rat from "./Rat";
 import Board from "./Board";
 import { RandomTab } from "./Helpers";
 import "../App.css";
@@ -78,23 +79,25 @@ class Game extends React.Component {
 		});
 	}
 
-	DidSomeoneWon (){
-		if (this.state.playerLifePoints < 1){
-			this.setState({lose: true})
+	DidSomeoneWon() {
+		if (this.state.playerLifePoints < 1) {
+			this.setState({ lose: true });
 		}
-		if (this.state.computerLifePoints < 1){
-			this.setState({win: true})
+		if (this.state.computerLifePoints < 1) {
+			this.setState({ win: true });
 		}
-	};
-	
-	pioche(){
-		let { playerCurrentCard,
+	}
+
+	pioche() {
+		let {
+			playerCurrentCard,
 			playerStack,
-			playerHands, 
+			playerHands,
 			computerCurrentCard,
-			computerStack, 
-			countTurn} = this.state;
-		playerHands = playerHands.filter(e=> e.id !== playerCurrentCard.id);
+			computerStack,
+			countTurn
+		} = this.state;
+		playerHands = playerHands.filter((e) => e.id !== playerCurrentCard.id);
 		let nbCard = playerHands.push(playerStack[0]);
 		let nvellepioche = playerStack.shift();
 		//console.log(playerHands);
@@ -108,11 +111,11 @@ class Game extends React.Component {
 		});
 		//console.log(countTurn);
 	}
-	fight(){
+	fight() {
 		this.battle();
 		this.DidSomeoneWon();
-		setTimeout( () => this.DidSomeoneWon(), 500)
-		setTimeout( () => this.pioche(),500)
+		setTimeout(() => this.DidSomeoneWon(), 500);
+		setTimeout(() => this.pioche(), 500);
 	}
 	render() {
 		const containerStyle = {
@@ -128,36 +131,40 @@ class Game extends React.Component {
 		};
 		return (
 			<>
-			{this.state.lose && <Lose />}
-			{this.state.win && <Win />}
-			{this.state.win === false && this.state.lose === false && <div style={containerStyle}>
-				<Board />
-				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
-				<Turn
-					playerCurrentCard={this.state.playerCurrentCard}
-					computerCurrentCard={this.state.computerCurrentCard}
-				/>
-				<AfficherDeck
-					hands={this.state.playerHands}
-					computerHands={this.state.computerHands}
-					selectPlayerCard={this.selectPlayerCard}
-					selectComputerCard={this.selectComputerCard}
-					playerCurrentCard={this.state.playerCurrentCard}
-				/>
+				{this.state.lose && <Lose />}
+				{this.state.win && <Win />}
+				{this.state.win === false && this.state.lose === false && (
+					<div style={containerStyle}>
+						<Board />
+						<Rat />
+						<AfficherDeckAdversaire computerStack={this.state.computerStack} />
+						<Turn
+							playerCurrentCard={this.state.playerCurrentCard}
+							computerCurrentCard={this.state.computerCurrentCard}
+						/>
+						<AfficherDeck
+							hands={this.state.playerHands}
+							computerHands={this.state.computerHands}
+							selectPlayerCard={this.selectPlayerCard}
+							selectComputerCard={this.selectComputerCard}
+							playerCurrentCard={this.state.playerCurrentCard}
+						/>
 
-				<HealthPoints
-					playerLifePoints={this.state.playerLifePoints}
-					computerLifePoints={this.state.computerLifePoints}
-				/>
-				{this.state.playerCurrentCard.id > 0 && (
-					<button
-						id="button-go"
-						onClick={(e) => this.fight(e)}
-						style={{ backgroundImage: `url(${blood})` }}
-					>
-						Attack
-					</button>
-				)}</div>}
+						<HealthPoints
+							playerLifePoints={this.state.playerLifePoints}
+							computerLifePoints={this.state.computerLifePoints}
+						/>
+						{this.state.playerCurrentCard.id > 0 && (
+							<button
+								id="button-go"
+								onClick={(e) => this.fight(e)}
+								style={{ backgroundImage: `url(${blood})` }}
+							>
+								Attack
+							</button>
+						)}
+					</div>
+				)}
 			</>
 		);
 	}
