@@ -143,7 +143,6 @@ class Game extends React.Component {
 						onClick={(e) => this.fight(e)}
 						style={{ backgroundImage: `url(${blood})` }}
 					>
-						{" "}
 						Attack
 					</button>
 				)}
