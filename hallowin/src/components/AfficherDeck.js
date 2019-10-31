@@ -6,27 +6,27 @@ function AfficherDeck({ hands, selectPlayerCard , playerCurrentCard }) {
 	//console.log(hands);
 	const deckStyle = {
 		position: "absolute",
-		bottom: "0",
+		bottom: "2vh",
 		backgroundColor: "rgb(0,0,0,0.2)",
 		padding: "30px",
 		borderRadius: "20px",
 		overflow: "hidden",
 		margin: "0",
 		width: "80vw",
-		height: '30%',
+		height: '35vh',
 		display: `flex`,
 		flexDirection: "row",
 		flexWrap: "nowrap",
 		justifyContent: "space-between",
 		alignItems: "stretch",
 		alignContent: "stretch",
-		cursor: "pointer"
+		cursor: "pointer",
 	};
 	//console.log("hands = ", hands);
 	return (
 		<div style={deckStyle}>
 			{hands.map((item) => (
-				<div style={{width : "20%"}} onClick={() => selectPlayerCard(item)} key={item.id}>
+				<div style={{width : "20vw"}} onClick={() => selectPlayerCard(item)} key={item.id}>
 					{(playerCurrentCard.id !== item.id) &&<Card
 						picture={item.picture}
 						name={item.name}
