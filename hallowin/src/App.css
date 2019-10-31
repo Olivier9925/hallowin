@@ -9,7 +9,7 @@
 
 .score {
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 	font-family: "Madjoe";
 	font-size: 2em;
 	position: absolute;
@@ -33,7 +33,7 @@
 	width: 30%;
 	height: 30%;
 	background-color: transparent;
-	background-size: contain;
+	background-size: 100% 100% ;
 	background-repeat: no-repeat;
 	color: black;
 	border: none;

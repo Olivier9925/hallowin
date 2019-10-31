@@ -13,6 +13,7 @@ function AfficherDeck({ hands, selectPlayerCard , playerCurrentCard }) {
 		overflow: "hidden",
 		margin: "0",
 		width: "80vw",
+		height: '30%',
 		display: `flex`,
 		flexDirection: "row",
 		flexWrap: "nowrap",
