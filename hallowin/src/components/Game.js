@@ -20,10 +20,10 @@ class Game extends React.Component {
 			computerStack: [],
 			playerCurrentCard: { id: 0 },
 			computerCurrentCard: { id: 0 },
-			playerLifePoints: 50,
-			computerLifePoints: 50,
+			playerLifePoints: 3,
+			computerLifePoints: 3,
 			win: false,
-			lose: true,
+			lose: false,
 			playerTurn: false,
 			countTurn: 1
 		};
@@ -77,10 +77,12 @@ class Game extends React.Component {
 			computerLifePoints: this.state.computerLifePoints - playerAttack
 		});
 	}
+
 	DidSomeoneWon (){
 		if (this.state.playerLifePoints < 1){
 			this.setState({lose: true})
-		} else if (this.state.computerLifePoints < 1){
+		}
+		if (this.state.computerLifePoints < 1){
 			this.setState({win: true})
 		}
 	};
@@ -109,6 +111,7 @@ class Game extends React.Component {
 	fight(){
 		this.battle();
 		this.DidSomeoneWon();
+		setTimeout( () => this.DidSomeoneWon(), 500)
 		setTimeout( () => this.pioche(),500)
 	}
 	render() {
@@ -124,7 +127,10 @@ class Game extends React.Component {
 			alignContent: "stretch"
 		};
 		return (
-			<div style={containerStyle}>
+			<>
+			{this.state.lose && <Lose />}
+			{this.state.win && <Win />}
+			{this.state.win === false && this.state.lose === false && <div style={containerStyle}>
 				<Board />
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
 				<Turn
@@ -151,10 +157,8 @@ class Game extends React.Component {
 					>
 						Attack
 					</button>
-				)}
-				{this.state.lose && <Lose lose={this.state.lose} />}
-				{this.state.win && <Win win={this.state.win} />}
-			</div>
+				)}</div>}
+			</>
 		);
 	}
 }

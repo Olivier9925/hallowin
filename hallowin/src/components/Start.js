@@ -17,6 +17,7 @@ function App(props) {
 	};
 	const shieldStyle = {
 		height: "75vh",
+		width: "auto",
 		cursor: "pointer"
 	};
 	return (
