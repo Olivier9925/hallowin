@@ -77,17 +77,22 @@ class Game extends React.Component {
 			computerLifePoints: this.state.computerLifePoints - playerAttack
 		});
 	}
-
-	pioche() {
-		let {
-			playerCurrentCard,
+	DidSomeoneWon (){
+		if (this.state.playerLifePoints < 1){
+			this.setState({lose: true})
+		} else if (this.state.computerLifePoints < 1){
+			this.setState({win: true})
+		}
+	};
+	
+	pioche(){
+		let { playerCurrentCard,
 			playerStack,
-			playerHands,
+			playerHands, 
 			computerCurrentCard,
-			computerStack,
-			countTurn
-		} = this.state;
-		playerHands = playerHands.filter((e) => e.id !== playerCurrentCard.id);
+			computerStack, 
+			countTurn} = this.state;
+		playerHands = playerHands.filter(e=> e.id !== playerCurrentCard.id);
 		let nbCard = playerHands.push(playerStack[0]);
 		let nvellepioche = playerStack.shift();
 		//console.log(playerHands);
@@ -101,9 +106,10 @@ class Game extends React.Component {
 		});
 		//console.log(countTurn);
 	}
-	fight() {
+	fight(){
 		this.battle();
-		setTimeout(this.pioche(), 3000);
+		this.DidSomeoneWon();
+		setTimeout( () => this.pioche(),500)
 	}
 	render() {
 		const containerStyle = {
