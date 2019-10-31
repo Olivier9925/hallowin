@@ -26,15 +26,22 @@
 
 #button-go {
 	font-family: "Madjoe";
-	font-size: 3em;
+	font-size: 2.8em;
 	z-index: 5;
 	position: fixed;
 	top: 45%;
-	width: 30%;
-	height: 30%;
+	width: 15%;
+	height: 15%;
 	background-color: transparent;
 	background-size: 100% 100% ;
 	background-repeat: no-repeat;
 	color: black;
 	border: none;
+}
+#button-go:hover{
+	font-size: 4em;
+	width: 20%;
+	height: 20%;
+	transition: 0.05s;
+	cursor: pointer;
 }
