@@ -25,7 +25,7 @@ class Turn extends Component {
 	const {computerCurrentCard, playerCurrentCard} = this.props
 		return (
 			<div id="battle" style={styleBattleGround}>
-				<div style = {{...stylePlayerCard , alignSelf: "flex-end"}}>
+				<div style = {{...stylePlayerCard , alignSelf: "flex-end", zIndex: "5"}}>
 				{(playerCurrentCard.id > 0) && 
 					<Card
 						picture={playerCurrentCard.picture}
