@@ -1,0 +1,35 @@
+{
+  "files": {
+    "main.css": "/hallowin/static/css/main.7857bc72.chunk.css",
+    "main.js": "/hallowin/static/js/main.39ac07b6.chunk.js",
+    "main.js.map": "/hallowin/static/js/main.39ac07b6.chunk.js.map",
+    "runtime-main.js": "/hallowin/static/js/runtime-main.47fbf890.js",
+    "runtime-main.js.map": "/hallowin/static/js/runtime-main.47fbf890.js.map",
+    "static/js/2.d39cdd55.chunk.js": "/hallowin/static/js/2.d39cdd55.chunk.js",
+    "static/js/2.d39cdd55.chunk.js.map": "/hallowin/static/js/2.d39cdd55.chunk.js.map",
+    "index.html": "/hallowin/index.html",
+    "precache-manifest.448f873824607b6d3e7d44b87ab41bb8.js": "/hallowin/precache-manifest.448f873824607b6d3e7d44b87ab41bb8.js",
+    "service-worker.js": "/hallowin/service-worker.js",
+    "static/css/main.7857bc72.chunk.css.map": "/hallowin/static/css/main.7857bc72.chunk.css.map",
+    "static/media/Hero.png": "/hallowin/static/media/Hero.cd17e2c6.png",
+    "static/media/App.css": "/hallowin/static/media/Madjoe.6ac355ec.ttf",
+    "static/media/Potion_2.png": "/hallowin/static/media/Potion_2.56ed731d.png",
+    "static/media/SwordAxe.png": "/hallowin/static/media/SwordAxe.77242291.png",
+    "static/media/blood.png": "/hallowin/static/media/blood.3613c2da.png",
+    "static/media/candle.png": "/hallowin/static/media/candle.553eb408.png",
+    "static/media/card_back.jpg": "/hallowin/static/media/card_back.22321647.jpg",
+    "static/media/rock3.jpg": "/hallowin/static/media/rock3.6179c104.jpg",
+    "static/media/shield_start.png": "/hallowin/static/media/shield_start.e15e53ad.png",
+    "static/media/spiderWeb.png": "/hallowin/static/media/spiderWeb.9dd50d8b.png",
+    "static/media/wood1.png": "/hallowin/static/media/wood1.42d70ff7.png",
+    "static/media/wood2.png": "/hallowin/static/media/wood2.5d6cc880.png",
+    "static/media/youdied.jpg": "/hallowin/static/media/youdied.6d0cd2aa.jpg",
+    "static/media/youwin.png": "/hallowin/static/media/youwin.85fe93a9.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.47fbf890.js",
+    "static/js/2.d39cdd55.chunk.js",
+    "static/css/main.7857bc72.chunk.css",
+    "static/js/main.39ac07b6.chunk.js"
+  ]
+}
