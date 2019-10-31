@@ -81,6 +81,13 @@ class Game extends React.Component {
 			}
 		}
 	}
+	DidSomeoneWon (){
+		if (this.state.playerLifePoints < 1){
+			this.setState({lose: true})
+		} else if (this.state.computerLifePoints < 1){
+			this.setState({win: true})
+		}
+	};
 	
 	pioche(){
 		let { playerCurrentCard, playerStack, playerHands, 
@@ -101,8 +108,9 @@ class Game extends React.Component {
 		console.log(countTurn)
 	}
 	fight(){
-		this.battle()
-		setTimeout(this.pioche(),2000)
+		this.battle();
+		this.DidSomeoneWon();
+		setTimeout( () => this.pioche(),500)
 	}
 	render() {
 		const containerStyle = {
@@ -134,7 +142,7 @@ class Game extends React.Component {
 					computerLifePoints={this.state.computerLifePoints}
 				/>
 				{(this.state.playerCurrentCard.id > 0) && 
-				<button id="button-go" onClick ={(e) => this.fight(e)}style={{backgroundImage:`url(${blood})`}}> Attack</button>}
+				<button id="button-go" onClick ={(e) => this.fight(e)} style={{backgroundImage:`url(${blood})`}}> Attack ?</button>}
 				{this.state.lose && <Lose lose={this.state.lose} />}
 				{this.state.win && <Win win={this.state.win} />}
 			</div>

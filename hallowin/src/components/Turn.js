@@ -6,13 +6,15 @@ const styleBattleGround = {
 	top: '20%',
 	left: '35%',
 	width: '30%',
-	height: "50%",
+	height: "30%",
 	display: "flex",
-	flexDirection: "row"
+	flexDirection: "row",
+	justifyContent: "space-around"
 }
 const stylePlayerCard = {
 	position: 'relative',
-	width: "50%",
+	width: "45%",
+	height: '90%',
 }
 class Turn extends Component {
 	constructor(props) {
@@ -23,7 +25,19 @@ class Turn extends Component {
 	const {computerCurrentCard, playerCurrentCard} = this.props
 		return (
 			<div id="battle" style={styleBattleGround}>
-				<div style = {stylePlayerCard}>
+				<div style = {{...stylePlayerCard , alignSelf: "flex-end"}}>
+				{(playerCurrentCard.id > 0) && 
+					<Card
+						picture={playerCurrentCard.picture}
+						name={playerCurrentCard.name}
+						id={playerCurrentCard.id}
+						level={playerCurrentCard.level}
+						attack={playerCurrentCard.attack}
+						defense={playerCurrentCard.defense}
+						special={playerCurrentCard.special}
+						/>}
+				</div>
+				<div style = {{...stylePlayerCard, alignSelf: "flex-start"}}>
 					{(computerCurrentCard && computerCurrentCard.id > 0) && 
 					<Card
 						picture={computerCurrentCard.picture}
@@ -34,18 +48,6 @@ class Turn extends Component {
 						defense={computerCurrentCard.defense}
 						special={computerCurrentCard.special}
 						/>}
-				</div>
-				<div style = {stylePlayerCard}>
-				{(playerCurrentCard.id > 0) && 
-					<Card
-						picture={playerCurrentCard.picture}
-						name={playerCurrentCard.name}
-						id={playerCurrentCard.id}
-						level={playerCurrentCard.level}
-						attack={playerCurrentCard.attack}
-						defense={playerCurrentCard.defense}
-						special={playerCurrentCard.special}
-						style = {stylePlayerCard}/>}
 				</div>
 				
 			</div>
