@@ -22,6 +22,7 @@
 
 }
 #candleContainer{
+    top: 0;
     height: 70%;
     width: 100%;
     display: flex;
@@ -29,6 +30,7 @@
     justify-content: center;
 }
 #candle1{
+    padding-top: 10vh;
     height: 22%;
     padding-bottom: 15%;
     left: 10%;
