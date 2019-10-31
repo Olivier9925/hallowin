@@ -9,7 +9,7 @@ import { RandomTab } from "./Helpers";
 import "../App.css";
 import HealthPoints from "./HealthPoints";
 import Turn from "./Turn";
-import blood from "../graphics/blood.png"
+import blood from "../graphics/blood.png";
 
 class Game extends React.Component {
 	constructor() {
@@ -18,14 +18,14 @@ class Game extends React.Component {
 			playerStack: [],
 			playerHands: [],
 			computerStack: [],
-			playerCurrentCard: {id: 0},
-			computerCurrentCard: {id:0},
-			playerLifePoints: 15,
-			computerLifePoints: 15,
+			playerCurrentCard: { id: 0 },
+			computerCurrentCard: { id: 0 },
+			playerLifePoints: 3,
+			computerLifePoints: 3,
 			win: false,
 			lose: false,
 			playerTurn: false,
-			countTurn: 1,
+			countTurn: 1
 		};
 		this.getMonster = this.getMonster.bind(this);
 		this.battle = this.battle.bind(this);
@@ -43,66 +43,76 @@ class Game extends React.Component {
 				playerStack: playerStack,
 				playerHands: playerHands,
 				computerStack: computerStack,
-				computerCurrentCard: computerCurrentCard,
+				computerCurrentCard: computerCurrentCard
 			});
 		});
 	}
 	selectPlayerCard(card) {
 		this.setState({ playerCurrentCard: card, playerTurn: !this.state.playerTurn });
 	}
-	
+
 	selectComputerCard = (card) => {
 		this.setState({ computerCurrentCard: card, playerTurn: !this.state.playerTurn });
 	};
-	
+
 	componentDidMount() {
 		this.getMonster();
 		this.selectComputerCard();
 	}
-	
+
 	battle() {
-		const { playerCurrentCard, computerCurrentCard  } = this.state;
+		const { playerCurrentCard, computerCurrentCard } = this.state;
+		let computerAttack = 0;
+		let playerAttack = 0;
+
 		if (playerCurrentCard.attack > computerCurrentCard.defense) {
-			this.setState({
-				computerLifePoints:
-					this.state.computerLifePoints - (playerCurrentCard.attack - computerCurrentCard.defense)
-			});
-			if (this.state.computerLifePoints <= 0) {
-				this.setState({ win: true });
-			}
+			playerAttack = playerCurrentCard.attack - computerCurrentCard.defense;
 		}
 		if (computerCurrentCard.attack > playerCurrentCard.defense) {
-			this.setState({
-				playerLifePoints:
-					this.state.playerLifePoints - (computerCurrentCard.attack - playerCurrentCard.defense)
-			});
-			if (this.state.playerLifePoints <= 0) {
-				this.setState({ lose: true });
-			}
+			computerAttack = computerCurrentCard.attack - playerCurrentCard.defense;
 		}
+
+		this.setState({
+			playerLifePoints: this.state.playerLifePoints - computerAttack,
+			computerLifePoints: this.state.computerLifePoints - playerAttack
+		});
 	}
+
+	DidSomeoneWon (){
+		if (this.state.playerLifePoints < 1){
+			this.setState({lose: true})
+		}
+		if (this.state.computerLifePoints < 1){
+			this.setState({win: true})
+		}
+	};
 	
 	pioche(){
-		let { playerCurrentCard, playerStack, playerHands, 
-			computerCurrentCard,  computerStack, 
+		let { playerCurrentCard,
+			playerStack,
+			playerHands, 
+			computerCurrentCard,
+			computerStack, 
 			countTurn} = this.state;
 		playerHands = playerHands.filter(e=> e.id !== playerCurrentCard.id);
 		let nbCard = playerHands.push(playerStack[0]);
 		let nvellepioche = playerStack.shift();
-		console.log(playerHands);
+		//console.log(playerHands);
 		computerCurrentCard = computerStack[countTurn];
 		this.setState({
-		playerHands : playerHands,
-		countTurn : countTurn ++,
-		playerCurrentCard: {id:0},
-		computerCurrentCard: computerCurrentCard,
-		playerStack : playerStack,
-		})
-		console.log(countTurn)
+			playerHands: playerHands,
+			countTurn: countTurn++,
+			playerCurrentCard: { id: 0 },
+			computerCurrentCard: computerCurrentCard,
+			playerStack: playerStack
+		});
+		//console.log(countTurn);
 	}
 	fight(){
-		this.battle()
-		setTimeout(this.pioche(),2000)
+		this.battle();
+		this.DidSomeoneWon();
+		setTimeout( () => this.DidSomeoneWon(), 500)
+		setTimeout( () => this.pioche(),500)
 	}
 	render() {
 		const containerStyle = {
@@ -117,10 +127,16 @@ class Game extends React.Component {
 			alignContent: "stretch"
 		};
 		return (
-			<div style={containerStyle}>
+			<>
+			{this.state.lose && <Lose />}
+			{this.state.win && <Win />}
+			{this.state.win === false && this.state.lose === false && <div style={containerStyle}>
 				<Board />
 				<AfficherDeckAdversaire computerStack={this.state.computerStack} />
-				<Turn playerCurrentCard={this.state.playerCurrentCard} computerCurrentCard={this.state.computerCurrentCard} />
+				<Turn
+					playerCurrentCard={this.state.playerCurrentCard}
+					computerCurrentCard={this.state.computerCurrentCard}
+				/>
 				<AfficherDeck
 					hands={this.state.playerHands}
 					computerHands={this.state.computerHands}
@@ -133,11 +149,17 @@ class Game extends React.Component {
 					playerLifePoints={this.state.playerLifePoints}
 					computerLifePoints={this.state.computerLifePoints}
 				/>
-				{(this.state.playerCurrentCard.id > 0) && 
-				<button id="button-go" onClick ={(e) => this.fight(e)}style={{backgroundImage:`url(${blood})`}}> Attack</button>}
-				{this.state.lose && <Lose />}
-				{this.state.win && <Win />}
-			</div>
+				{this.state.playerCurrentCard.id > 0 && (
+					<button
+						id="button-go"
+						onClick={(e) => this.fight(e)}
+						style={{ backgroundImage: `url(${blood})` }}
+					>
+						{" "}
+						Attack
+					</button>
+				)}</div>}
+			</>
 		);
 	}
 }

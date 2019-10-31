@@ -10,7 +10,7 @@ function Win() {
 				<div className="modalWinLose">
 					<p>You destroyed your enemy!</p>
 					<img src={YouWin} alt="you win" />
-					<p>Go back to battle ?</p>
+					<p><a href="/">Go back to battle ?</a></p>
 				</div>
 			</div>
 		);

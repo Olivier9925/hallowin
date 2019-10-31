@@ -9,7 +9,7 @@ function Lose() {
 			<div className="modalWinLose">
 				<h2>YOU DIED!</h2>
 				<img src={YouDied} alt="you died" />
-				<p>Try again ?</p>
+				<p><a href="/">Try again ?</a></p>
 			</div>
 			</div>
 		);
