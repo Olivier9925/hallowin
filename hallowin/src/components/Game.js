@@ -9,6 +9,7 @@ import { RandomTab } from "./Helpers";
 import "../App.css";
 import HealthPoints from "./HealthPoints";
 import Turn from "./Turn";
+import blood from "../graphics/blood.png"
 
 class Game extends React.Component {
 	constructor() {
@@ -23,7 +24,8 @@ class Game extends React.Component {
 			computerLifePoints: 15,
 			win: false,
 			lose: true,
-			playerTurn: false
+			playerTurn: false,
+			countTurn: 1,
 		};
 		this.getMonster = this.getMonster.bind(this);
 		this.battle = this.battle.bind(this);
@@ -45,24 +47,21 @@ class Game extends React.Component {
 			});
 		});
 	}
-
 	selectPlayerCard(card) {
 		this.setState({ playerCurrentCard: card, playerTurn: !this.state.playerTurn });
 	}
-
+	
 	selectComputerCard = (card) => {
 		this.setState({ computerCurrentCard: card, playerTurn: !this.state.playerTurn });
 	};
-
+	
 	componentDidMount() {
 		this.getMonster();
 		this.selectComputerCard();
 	}
-
+	
 	battle() {
-		const { playerCurrentCard } = this.state.playerCurrentCard;
-		const { computerCurrentCard } = this.state.computerCurrentCard;
-
+		const { playerCurrentCard, computerCurrentCard  } = this.state;
 		if (playerCurrentCard.attack > computerCurrentCard.defense) {
 			this.setState({
 				computerLifePoints:
@@ -82,7 +81,29 @@ class Game extends React.Component {
 			}
 		}
 	}
-
+	
+	pioche(){
+		let { playerCurrentCard, playerStack, playerHands, 
+			computerCurrentCard,  computerStack, 
+			countTurn} = this.state;
+		playerHands = playerHands.filter(e=> e.id !== playerCurrentCard.id);
+		let nbCard = playerHands.push(playerStack[0]);
+		let nvellepioche = playerStack.shift();
+		console.log(playerHands);
+		computerCurrentCard = computerStack[countTurn];
+		this.setState({
+		playerHands : playerHands,
+		countTurn : countTurn ++,
+		playerCurrentCard: {id:0},
+		computerCurrentCard: computerCurrentCard,
+		playerStack : playerStack,
+		})
+		console.log(countTurn)
+	}
+	fight(){
+		this.battle()
+		setTimeout(this.pioche(),2000)
+	}
 	render() {
 		const containerStyle = {
 			height: "100vh",
@@ -112,6 +133,8 @@ class Game extends React.Component {
 					playerLifePoints={this.state.playerLifePoints}
 					computerLifePoints={this.state.computerLifePoints}
 				/>
+				{(this.state.playerCurrentCard.id > 0) && 
+				<button id="button-go" onClick ={(e) => this.fight(e)}style={{backgroundImage:`url(${blood})`}}> Attack</button>}
 				{this.state.lose && <Lose lose={this.state.lose} />}
 				{this.state.win && <Win win={this.state.win} />}
 			</div>

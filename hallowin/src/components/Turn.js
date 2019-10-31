@@ -4,8 +4,8 @@ import Card from "./Card";
 const styleBattleGround = {
 	position: 'fixed',
 	top: '20%',
-	left: '20%',
-	width: '60%',
+	left: '35%',
+	width: '30%',
 	height: "50%",
 	display: "flex",
 	flexDirection: "row"
@@ -23,27 +23,31 @@ class Turn extends Component {
 	const {computerCurrentCard, playerCurrentCard} = this.props
 		return (
 			<div id="battle" style={styleBattleGround}>
-				{(computerCurrentCard && computerCurrentCard.id > 0) && 
-				<Card
-					picture={computerCurrentCard.picture}
-					name={computerCurrentCard.name}
-					id={computerCurrentCard.id}
-					level={computerCurrentCard.level}
-					attack={computerCurrentCard.attack}
-					defense={computerCurrentCard.defense}
-					special={computerCurrentCard.special}
-					style = {stylePlayerCard}/>}
+				<div style = {stylePlayerCard}>
+					{(computerCurrentCard && computerCurrentCard.id > 0) && 
+					<Card
+						picture={computerCurrentCard.picture}
+						name={computerCurrentCard.name}
+						id={computerCurrentCard.id}
+						level={computerCurrentCard.level}
+						attack={computerCurrentCard.attack}
+						defense={computerCurrentCard.defense}
+						special={computerCurrentCard.special}
+						/>}
+				</div>
+				<div style = {stylePlayerCard}>
 				{(playerCurrentCard.id > 0) && 
-				<Card
-					picture={playerCurrentCard.picture}
-					name={playerCurrentCard.name}
-					id={playerCurrentCard.id}
-					level={playerCurrentCard.level}
-					attack={playerCurrentCard.attack}
-					defense={playerCurrentCard.defense}
-					special={playerCurrentCard.special}
-					style = {stylePlayerCard}/>}
-				{console.log("playerCurrrentCard = ", this.props.playerCurrentCard)}
+					<Card
+						picture={playerCurrentCard.picture}
+						name={playerCurrentCard.name}
+						id={playerCurrentCard.id}
+						level={playerCurrentCard.level}
+						attack={playerCurrentCard.attack}
+						defense={playerCurrentCard.defense}
+						special={playerCurrentCard.special}
+						style = {stylePlayerCard}/>}
+				</div>
+				
 			</div>
 		);
 	}

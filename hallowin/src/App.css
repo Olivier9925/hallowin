@@ -23,3 +23,18 @@
 	margin-right: 20px;
 	color: white;
 }
+
+#button-go {
+	font-family: "Madjoe";
+	font-size: 3em;
+	z-index: 5;
+	position: fixed;
+	top: 45%;
+	width: 30%;
+	height: 30%;
+	background-color: transparent;
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: black;
+	border: none;
+}
