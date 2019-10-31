@@ -23,7 +23,7 @@ class Game extends React.Component {
 			playerLifePoints: 15,
 			computerLifePoints: 15,
 			win: false,
-			lose: true,
+			lose: false,
 			playerTurn: false,
 			countTurn: 1,
 		};
@@ -135,8 +135,8 @@ class Game extends React.Component {
 				/>
 				{(this.state.playerCurrentCard.id > 0) && 
 				<button id="button-go" onClick ={(e) => this.fight(e)}style={{backgroundImage:`url(${blood})`}}> Attack</button>}
-				{this.state.lose && <Lose lose={this.state.lose} />}
-				{this.state.win && <Win win={this.state.win} />}
+				{this.state.lose && <Lose />}
+				{this.state.win && <Win />}
 			</div>
 		);
 	}

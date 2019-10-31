@@ -1,46 +1,19 @@
 import React, { Component } from "react";
-import Modal from "react-responsive-modal";
 import YouWin from "./Images/youwin.png";
 import "../App.css";
+import "./Modal.css"
 
-const style = {
-	fontFamily: "Madjoe",
-	textAlign: 'center'
-}
+function Win() {
 
-class Win extends Component {
-	constructor({ win }) {
-		super({ win })
-	this.state = {
-		open: false
-	};
-
-	this.onOpenModal = this.onOpenModal.bind(this)
-	}
-
-	onOpenModal = () => {
-		this.setState({ open: true });
-	};
-
-	onCloseModal = () => {
-		this.setState({ open: false });
-	};
-
-	if ( win ) {
-		this.onOpenModal()
-	}
-
-	render() {
-		const { open } = this.state;
 		return (
-			<div>
-				<Modal open={open} onClose={this.onCloseModal} center>
-					<h2 style={style}>You destroyed your enemy!</h2>
+			<div className="containerWinLose">
+				<div className="modalWinLose">
+					<p>You destroyed your enemy!</p>
 					<img src={YouWin} alt="you win" />
-				</Modal>
+					<p>Go back to battle ?</p>
+				</div>
 			</div>
 		);
-	}
 }
 
 export default Win;
