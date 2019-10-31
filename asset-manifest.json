@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/hallowin/static/css/main.7857bc72.chunk.css",
-    "main.js": "/hallowin/static/js/main.5da34fe7.chunk.js",
-    "main.js.map": "/hallowin/static/js/main.5da34fe7.chunk.js.map",
+    "main.css": "/hallowin/static/css/main.ae4cc7ff.chunk.css",
+    "main.js": "/hallowin/static/js/main.43be820e.chunk.js",
+    "main.js.map": "/hallowin/static/js/main.43be820e.chunk.js.map",
     "runtime-main.js": "/hallowin/static/js/runtime-main.47fbf890.js",
     "runtime-main.js.map": "/hallowin/static/js/runtime-main.47fbf890.js.map",
-    "static/js/2.d39cdd55.chunk.js": "/hallowin/static/js/2.d39cdd55.chunk.js",
-    "static/js/2.d39cdd55.chunk.js.map": "/hallowin/static/js/2.d39cdd55.chunk.js.map",
+    "static/js/2.28318a61.chunk.js": "/hallowin/static/js/2.28318a61.chunk.js",
+    "static/js/2.28318a61.chunk.js.map": "/hallowin/static/js/2.28318a61.chunk.js.map",
     "index.html": "/hallowin/index.html",
-    "precache-manifest.ba976f9f0e22c22891b281f4c70948cb.js": "/hallowin/precache-manifest.ba976f9f0e22c22891b281f4c70948cb.js",
+    "precache-manifest.33264c5eb75b36687f3addc818e8fb0c.js": "/hallowin/precache-manifest.33264c5eb75b36687f3addc818e8fb0c.js",
     "service-worker.js": "/hallowin/service-worker.js",
-    "static/css/main.7857bc72.chunk.css.map": "/hallowin/static/css/main.7857bc72.chunk.css.map",
+    "static/css/main.ae4cc7ff.chunk.css.map": "/hallowin/static/css/main.ae4cc7ff.chunk.css.map",
     "static/media/Hero.png": "/hallowin/static/media/Hero.cd17e2c6.png",
     "static/media/App.css": "/hallowin/static/media/Madjoe.6ac355ec.ttf",
     "static/media/Potion_2.png": "/hallowin/static/media/Potion_2.56ed731d.png",
@@ -18,6 +18,7 @@
     "static/media/blood.png": "/hallowin/static/media/blood.3613c2da.png",
     "static/media/candle.png": "/hallowin/static/media/candle.553eb408.png",
     "static/media/card_back.jpg": "/hallowin/static/media/card_back.22321647.jpg",
+    "static/media/rat.gif": "/hallowin/static/media/rat.878eefe7.gif",
     "static/media/rock3.jpg": "/hallowin/static/media/rock3.6179c104.jpg",
     "static/media/shield_start.png": "/hallowin/static/media/shield_start.e15e53ad.png",
     "static/media/spiderWeb.png": "/hallowin/static/media/spiderWeb.9dd50d8b.png",
@@ -28,8 +29,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.47fbf890.js",
-    "static/js/2.d39cdd55.chunk.js",
-    "static/css/main.7857bc72.chunk.css",
-    "static/js/main.5da34fe7.chunk.js"
+    "static/js/2.28318a61.chunk.js",
+    "static/css/main.ae4cc7ff.chunk.css",
+    "static/js/main.43be820e.chunk.js"
   ]
 }

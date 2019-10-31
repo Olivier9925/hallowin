@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "56b1ada9b985456cc3083f2c47d30b61",
+    "revision": "e65c8e15f7ebaebced469120429c28a9",
     "url": "/hallowin/index.html"
   },
   {
-    "revision": "53eaa21d78cecc4bddf5",
-    "url": "/hallowin/static/css/main.7857bc72.chunk.css"
+    "revision": "89899085c1a05e409cfe",
+    "url": "/hallowin/static/css/main.ae4cc7ff.chunk.css"
   },
   {
-    "revision": "0715a2c988a3f575940b",
-    "url": "/hallowin/static/js/2.d39cdd55.chunk.js"
+    "revision": "187c6b3bbc7344edb8b5",
+    "url": "/hallowin/static/js/2.28318a61.chunk.js"
   },
   {
-    "revision": "53eaa21d78cecc4bddf5",
-    "url": "/hallowin/static/js/main.5da34fe7.chunk.js"
+    "revision": "89899085c1a05e409cfe",
+    "url": "/hallowin/static/js/main.43be820e.chunk.js"
   },
   {
     "revision": "8d6680f19ff0f169fdf3",
@@ -46,6 +46,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "22321647fae1e6023eab338a5d5a6de0",
     "url": "/hallowin/static/media/card_back.22321647.jpg"
+  },
+  {
+    "revision": "878eefe7c39bf1ad2db6b8ccc0d0f2e6",
+    "url": "/hallowin/static/media/rat.878eefe7.gif"
   },
   {
     "revision": "6179c1046c5b93880adcc9c081e0d932",
