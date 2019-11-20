@@ -1,5 +1,5 @@
 # HalloWin
-## hackathlon 1
+### hackathon 1
 <p align="center">
 <img src="https://github.com/Olivier9925/hallowin/blob/master/Capture%20d%E2%80%99e%CC%81cran%202019-11-20%20a%CC%80%2008.28.54.png?raw=true" width="400" />
 
